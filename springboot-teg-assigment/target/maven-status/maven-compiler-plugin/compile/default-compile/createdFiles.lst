@@ -1,0 +1,12 @@
+com\teg\message\assignment\dto\ContactResponse.class
+com\teg\message\assignment\controller\ContactController.class
+com\teg\message\assignment\producer\Producer.class
+com\teg\message\assignment\SpringbootTegAssigmentApplication.class
+com\teg\message\assignment\exception\GlobalExceptionHandler.class
+com\teg\message\assignment\producer\Consumer.class
+com\teg\message\assignment\dto\ContactRequest.class
+com\teg\message\assignment\repository\ContactReposotory.class
+com\teg\message\assignment\exception\GlobalExceptionHandler$1.class
+com\teg\message\assignment\entity\Contacts.class
+com\teg\message\assignment\services\ContactServices.class
+com\teg\message\assignment\services\ContactServicesImpl.class
