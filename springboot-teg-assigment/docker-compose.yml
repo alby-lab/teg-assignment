@@ -24,7 +24,7 @@ services:
       - springapimysql-net  
     environment:
       MYSQL_DATABASE: test
-      MYSQL_USER: root
+      MYSQL_USER: admin
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
 networks:
