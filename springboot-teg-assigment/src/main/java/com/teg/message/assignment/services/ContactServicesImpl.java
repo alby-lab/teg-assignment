@@ -26,25 +26,17 @@ public class ContactServicesImpl implements ContactServices {
 	@Override
 	public List<Contacts> fetchAllContacts(String filterParam, Integer page) {
 		List<Contacts> contactList = new ArrayList<Contacts>();
-		Integer size = 500;
+		Integer size = 100;
+		Pattern pattern = Pattern.compile(filterParam);
+		
 		try {
 			Pageable pageable = PageRequest.of(page, size);
 			Page<Contacts> pageContacts = contactReposotory.findAll(pageable);
-			contactList = pageContacts.getContent();
-			if (filterParam.equals("^A.$")) {
-				Pattern pattern = Pattern.compile("^(?!A).*$");
-				return contactList.stream().filter(contact -> pattern.matcher(contact.getName()).matches())
-						.collect(Collectors.toList());
-			} else if (filterParam.equals("^.[aei].*$")) {
-
-				Pattern pattern = Pattern.compile("^[^aeiAEI]+$");
-				return contactList.stream().filter(contact -> pattern.matcher(contact.getName()).matches())
-						.collect(Collectors.toList());
-			}
-		} catch (Exception e) {
-			logger.error("ContactServicesImpl : fetchAllContacts{} " + e.getMessage());
+			contactList = pageContacts.getContent().stream().filter(contact -> pattern.matcher(contact.getName()).matches()) .collect(Collectors.toList());
+		  } catch (Exception e) {
+			 logger.error("ContactServicesImpl : fetchAllContacts{} " + e.getMessage());
 		}
-		return null;
+		return contactList;
 	}
 
 	@Override
