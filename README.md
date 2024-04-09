@@ -7,7 +7,7 @@ filtering contacts list implemented only two scenarios as mentioned in the assig
 To handle exception used @RestController Advise 
 Junit test 
 Data base used MYSQL
-Docker file and Docker compose created (While container running acing db connection issue )
+Docker file and Docker compose created (docker-compose working fine)  
 
 Command for running Zookeeper and Kafka 
 ========================================
