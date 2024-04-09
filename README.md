@@ -58,12 +58,13 @@ POST- http://localhost:8080/hellow/createContacts
 Retrive contacts -first scenarios 
 POST- http://localhost:8080/hellow/contacts
       {
-       "nameFilter":"^A.$",
+       "nameFilter":"^(?!A).*$",
        "page"   :0
       }
 Retrive contacts -second scenarios
  http://localhost:8080/hellow/contacts
       {
-       "nameFilter": "^.[aei].*$",
+       "nameFilter":"^[^aeiAEI]+$",
        "page"   :0
       }
+Note : if your regular expression pattren is wrong , will get empty list 
