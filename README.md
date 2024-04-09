@@ -5,8 +5,8 @@ cretae contacts success message triger in to kafka topic
 instead of GET method used POST to retive list of contaxcts 
 filtering contacts list implemented only two scenarios as mentioned in the assignment document 
 To handle exception used @RestController Advise 
-Junit test completed 
-Data base MYSQL used 
+Junit test 
+Data base used MYSQL
 Docker file and Docker compose created (While container running acing db connection issue )
 
 Command for running Zookeeper and Kafka 
@@ -44,7 +44,26 @@ add our image in to the docker container
 docker run -p 9090:8080 --name springboot-teg-assignment-docker --net teg-assignment-net -e MYSQL_HOST=mysqldb -e MYSQL_USER=root -e MYSQL_PASSWORD=root -e MYSQL_PORT=3306 springboot-teg-assignment-docker
 
 Command for docker-compose 
-============================
+==========================
 docker-compose up -d
-docker-compose down 
+docker-compose down
 
+Request PayLoads
+==================
+create contacts 
+POST- http://localhost:8080/hellow/createContacts
+      {
+      "name":"Alby"
+      }
+Retrive contacts -first scenarios 
+POST- http://localhost:8080/hellow/contacts
+      {
+       "nameFilter":"^A.$",
+       "page"   :0
+      }
+Retrive contacts -second scenarios
+ http://localhost:8080/hellow/contacts
+      {
+       "nameFilter": "^.[aei].*$",
+       "page"   :0
+      }
